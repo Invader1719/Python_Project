@@ -1,4 +1,4 @@
-def Chiper(string: str, key: str):
+def chipper(string: str, key: str):
     '''
     В данной Функции Реализован Шифр Цезаря. Этапы выполнения программы:
 
@@ -37,9 +37,11 @@ def Chiper(string: str, key: str):
     for i in range(len(string)):
 
         elemS = string[i]
-        if (ord(elemS) >= 1040 and ord(elemS) <= 1103) or elemS == "ё" or elemS == "Ё": # Russian
+        if (ord(elemS) >= 1040 and ord(elemS) <= 1103)\
+or elemS == "ё" or elemS == "Ё": # Russian
             language = 1
-        elif (ord(elemS) >= 65 and ord(elemS) <= 90) or (ord(elemS) >= 97 and ord(elemS) <= 122): # English
+        elif (ord(elemS) >= 65 and ord(elemS) <= 90)\
+or (ord(elemS) >= 97 and ord(elemS) <= 122): # English
             language = 2
         else:
             ans += elemS #other elemSs
@@ -47,17 +49,22 @@ def Chiper(string: str, key: str):
 
         if language == 1: # Russian
             key_cur = key % 33
-            alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-            alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-            if ((ord(elemS) >= 1072 and ord(elemS) < 1104) or elemS == "ё"): #LowerCase
+            alphabet = "абвгдеёжзийклмнопрстуфхцчш\
+щъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+            alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУ\
+ФХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+            if ((ord(elemS) >= 1072 and ord(elemS) < 1104)\
+or elemS == "ё"): #LowerCase
                 ans += alphabet[alphabet.find(elemS) + key_cur]
-            elif ((ord(elemS) >= 1040 and ord(elemS) < 1072)  or elemS == "Ё"): #UpperCase
+            elif ((ord(elemS) >= 1040 and ord(elemS) < 1072)\
+or elemS == "Ё"): #UpperCase
                 ans += alphabet_upper[alphabet_upper.find(elemS) + key_cur]
 
         elif language == 2: # English
             key_cur = key % 26
             alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
-            alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             if ((ord(elemS) >= 97 and ord(elemS) < 123)): #LowerCase
                 ans += alphabet[alphabet.find(elemS) + key_cur]
             elif (ord(elemS) >= 65 and ord(elemS) <= 90): #UpperCase
@@ -66,7 +73,7 @@ def Chiper(string: str, key: str):
     return ans
 
 
-def Chiper_hack(string: str):
+def chipper_hack(string: str):
     '''
     В данной Функции Реализован взлом Шифра Цезаря.
     P.S. Не гарантируется Адекватный взлом при длине
@@ -101,26 +108,33 @@ def Chiper_hack(string: str):
     #Count letters in string
     for i in range(n):
         elemS = string[i]
-        if (((ord(elemS) >= 1040 and ord(elemS) < 1104) or elemS == "ё" or elemS == "Ё") or
-                (ord(elemS) >= 65 and ord(elemS) <= 90) or (ord(elemS) >= 97 and ord(elemS) <= 122)):
+        if (((ord(elemS) >= 1040 and ord(elemS) < 1104)\
+or elemS == "ё" or elemS == "Ё") or
+                (ord(elemS) >= 65 and ord(elemS) <= 90)\
+or (ord(elemS) >= 97 and ord(elemS) <= 122)):
             try:
                 counter[string[i]] += 1
             except:
                 counter[string[i]] = 1
     A = list(counter.items())
-    A.sort(key=lambda n: n[1], reverse = True)
+    A.sort(key = lambda n: n[1], reverse = True)
     elemS = A[0][0]
 
     #trying to guess language
-    if (ord(elemS) >= 1040 and ord(elemS) < 1104) or elemS == "ё" or elemS == "Ё":  # Russian
+    if (ord(elemS) >= 1040 and ord(elemS) < 1104)\
+or elemS == "ё" or elemS == "Ё":  # Russian
         language = 1
-    elif (ord(elemS) >= 65 and ord(elemS) <= 90) or (ord(elemS) >= 97 and ord(elemS) <= 122):  # English
+    elif (ord(elemS) >= 65 and ord(elemS) <= 90)\
+or (ord(elemS) >= 97 and ord(elemS) <= 122):  # English
         language = 2
 
     if language == 1:  # Russian
-        alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-        alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-        if ((ord(elemS) >= 1072 and ord(elemS) < 1104) or elemS == "ё"):  # LowerCase
+        alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяа\
+бвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+        alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\
+АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+        if ((ord(elemS) >= 1072 and ord(elemS) < 1104)\
+or elemS == "ё"):  # LowerCase
             key = alphabet.find(elemS) - alphabet.find("о")
         elif ((ord(elemS) >= 1040 and ord(elemS) < 1072) or elemS == "Ё"):  # UpperCase
             key = alphabet_upper.find(elemS) - alphabet_upper.find("О")
@@ -133,4 +147,4 @@ def Chiper_hack(string: str):
         elif (ord(elemS) >= 65 and ord(elemS) < 97):  # UpperCase
             key = alphabet_upper.find(elemS) - 4
 
-    return Chiper(string, str(-key))
+    return chipper(string, str(-key))
