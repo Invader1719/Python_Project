@@ -1,4 +1,4 @@
-def Vernam_coder(string: str, key: str):
+def vernam_coder(string: str, key: str):
     '''
     В данной Функции Реализован Шифр Вернама.
     Я создал собственный алфавит на 128 элементах(Русский язык, Английский,
@@ -15,7 +15,7 @@ def Vernam_coder(string: str, key: str):
     :param string: Входной текст, который пользователь хочет
     закодировать шифром Вернама
 
-    :param key: Ключ-Слово, Подразумевается что это
+    :param key: Ключ-Слово, подразумевается что это
     английский/русский язык, Пунктаиционный символы, или цифры
 
     :return: Зашифрованный текст
@@ -35,7 +35,7 @@ def Vernam_coder(string: str, key: str):
         return "Bro, you forgot to enter a key"
 
     if (len(string) != len(key)):
-        return "Bro, in Vernam Chiper Key and Input text must be the same length"
+        return "Bro, in Vernam chipper Key and Input text must be the same length"
 
 
     a1 = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяabcdefghijklmnopqrstuvwxyzǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼʘǽǾǿȀȁȂȃȄȅȆȇȈȉȊȋȌȍȎ"
