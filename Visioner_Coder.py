@@ -1,4 +1,4 @@
-def Visioner(string: str, key: str):
+def visioner(string: str, key: str):
     '''
     В данной Функции Реализован Шифр Виженера. Этапы выполнения программы:
     1.1) Анализ ключа
@@ -88,7 +88,7 @@ def Visioner(string: str, key: str):
     return ans
 
 
-def DEVisioner(string: str, key: str):
+def devisioner(string: str, key: str):
     '''
     В данной Функции Реализован ДЕшифр Виженера. Этапы выполнения программы:
     (Если у пользователя есть зашифрованый текст и ключ. А он хочет получить
